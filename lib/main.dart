@@ -2,16 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_podstawy_utilities/colors/my_colors.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+  Color containerColor = MyColors.melon;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: MyColors.melon,
+    return GestureDetector(
+      onTap: () {
+        debugPrint('onTap called!!');
+        containerColor = containerColor == MyColors.melon
+            ? MyColors.ufoGreen
+            : MyColors.melon;
+      },
+      child: Container(
+        color: MyColors.melon,
+      ),
     );
   }
 }
